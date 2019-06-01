@@ -21,6 +21,7 @@ class Producto extends Component {
          <li>
         <p>{producto.nombre}</p>
         <button onClick={this.eliminarCambios} className="btn btn-danger">Borrar</button>
+      
       </li>
         
         </div>
