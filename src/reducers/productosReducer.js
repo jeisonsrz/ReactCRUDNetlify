@@ -13,7 +13,7 @@ export default function(state = estadoInicial, action) {
       break;
     case ELIMINAR_PRODUCTO:
     return {
-      ...state, productos: state.productos.filter(producto => producto.id !== action.payload)
+      ...state, productos: state.productos.filter( producto => producto.id !== action.payload)
   }
     break;
     default:

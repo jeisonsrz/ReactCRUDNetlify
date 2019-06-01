@@ -31,7 +31,7 @@ export const guardarProducto = producto => async dispatch => {
 };
 
 export const eliminarProducto = id => async dispatch => {
-  const respuesta = await axios.delete(
+  await axios.delete(
    /* 'https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos/'+producto,producto   */
 `https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos/${id}`
   );
@@ -40,7 +40,7 @@ export const eliminarProducto = id => async dispatch => {
 
   dispatch({
     type: ELIMINAR_PRODUCTO,
-    payload: respuesta.data
+    payload: id
   });
   //return { type: MOSTRAR_PRODUCTOS };
 };
