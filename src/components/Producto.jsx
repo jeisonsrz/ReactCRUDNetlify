@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { eliminarProducto } from "../actions/productosActions";
+import {withRouter} from "react-router-dom";
 
 class Producto extends Component {
 
+ 
+  state = {id: this.props.producto._id };
+
+  
 
   eliminarCambios = () => {
-  
+   
     //Guardar el producto
-    console.log("guardando el producto");
-    this.props.eliminarProducto(this.props.producto.id);
-   // console.log(this.props.producto.id);
-   // this.props.history.push("/");
+    console.log("eliminando el producto");
+   
+    console.log(this.state);
+    this.setState({ id: this.props.producto._id });
+    this.props.eliminarProducto(this.state);
+    this.props.history.push("/");
+   
+    //this.props.history.push("/");
   };
 
   render() {
@@ -31,9 +40,15 @@ class Producto extends Component {
   
 }
 
+/* const mapStateToProp = state => {
+  return {
+    productos: state.productos.productos
+  };
+};  */
 
 
 export default connect(
+  //mapStateToProp
   null,
   { eliminarProducto }
-)(Producto);
+)(withRouter(Producto));

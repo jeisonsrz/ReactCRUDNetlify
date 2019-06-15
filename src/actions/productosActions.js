@@ -6,7 +6,8 @@ import axios from "axios";
 //
 
 export const mostrarProductos = id => async dispatch => {
-  const respuesta = await axios.get("https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos");
+  const respuesta = await axios.get("http://localhost:5000/usuarios");
+  //https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos
   console.log(respuesta);
 
   dispatch({
@@ -18,7 +19,7 @@ export const mostrarProductos = id => async dispatch => {
 
 export const guardarProducto = producto => async dispatch => {
   const respuesta = await axios.post(
-    "https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos",
+    "http://localhost:5000/usuario",
     producto
   );
   console.log(respuesta);
@@ -31,11 +32,11 @@ export const guardarProducto = producto => async dispatch => {
 };
 
 export const eliminarProducto = id => async dispatch => {
-  await axios.delete(
+const respuesta=await axios.post(
    /* 'https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos/'+producto,producto   */
-`https://my-json-server.typicode.com/jeisonsrz/ReactNetlify/productos/${id}`
+'http://localhost:5000/borrarusuario',id
   );
-  //console.log(respuesta);    
+  console.log(respuesta);    
 
 
   dispatch({
